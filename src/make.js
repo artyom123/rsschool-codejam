@@ -1,4 +1,4 @@
-function make(...n) {
+module.exports = function make(...n) {
     let arr = [];
     arr.push(...n);
 
