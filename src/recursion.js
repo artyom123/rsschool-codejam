@@ -1,18 +1,17 @@
 module.exports = function recursion(obj) {
-    let arr = [];
-    let current = Object.assign(obj);
-    
-    function inOrder(node, arrT, i) {
-        arrT[i] = arrT[i] ? arrT[i] : [];
+  const arr = [];
+  const current = Object.assign(obj);
 
-        if(node.value !== undefined) arrT[i].push(node.value);
-            
-        if(node.left) inOrder(node.left, arrT, i+1);
+  function inOrder(node, arrT, i) {
+    const arrN = [];
+    arrN[i] = arrT[i] ? arrT[i] : [];
 
-        if(node.right) inOrder(node.right, arrT, i+1);
-    }
-    
-    inOrder(current, arr, 0)
-    
-    return arr;
-}
+    if (node.value !== undefined) arrN[i].push(node.value);
+    if (node.left) inOrder(node.left, arrN, i + 1);
+    if (node.right) inOrder(node.right, arrN, i + 1);
+  }
+
+  inOrder(current, arr, 0);
+
+  return arr;
+};
